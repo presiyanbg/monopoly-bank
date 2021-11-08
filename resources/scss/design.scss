@@ -1,0 +1,372 @@
+
+/*=============================================
+=            Reset            =
+=============================================*/
+
+* {
+	padding: 0;
+	margin: 0;
+	outline: 0;
+	box-sizing: border-box;
+}
+
+*:before,
+*:after { box-sizing: inherit; }
+
+/*=====  End of Reset  ======*/
+
+
+/*=============================================
+=            Base            =
+=============================================*/
+
+body {
+	font-family: "Courier", sans-serif;
+	font-weight: 100;
+	font-size: 16px;
+}
+
+h1 {
+	font-size: 61px;
+	line-height: 1.3em;
+	font-weight: 100;
+}
+
+h2 {
+	font-size: 26px;
+	line-height: 1em;
+	font-weight: 600;
+}
+
+h3 {
+	text-transform: uppercase;
+	font-size: 23px;
+	line-height: 1.3em;
+	font-weight: 100;
+}
+
+h4 {
+	font-size: 16px;
+	line-height: 1.5em;
+	letter-spacing: 0.1em;
+}
+
+h5 {
+	font-size: 15px;
+	line-height: 1.5em;
+}
+
+h6 {
+	font-size: 10px;
+	line-height: 1.5em;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+input {
+	font-family: inherit;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+/*=============================================
+=            Colors            =
+=============================================*/
+
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --primary: #548CA8;
+    --light: #EEEEEE;
+    --dark: #292d44;
+    --darker: #1d2030;
+    --green: #34BE82;
+    --light-green: #2FDD92;
+}
+
+
+/*=====  End of Colors  ======*/
+
+/*=====  End of Base  ======*/
+
+/*=============================================
+=            Wrapper            =
+=============================================*/
+
+.wrapper {
+    display: block;
+    margin: auto auto;
+    max-width: 1200px;
+}
+
+/*=====  End of Wrapper  ======*/
+
+/*=============================================
+=            Navigation            =
+=============================================*/
+
+.navigation {
+    width: 100%;
+    min-width: 100%;
+
+    .hero {
+        position: relative;
+
+        .body {
+            z-index: 3;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            text-shadow: 0 0 3rem rgba(0, 1, 0, 1);
+
+            .title {
+                text-transform: uppercase;
+                color: var(--white);
+            }
+
+            .subtitle {
+                color: var(--white);
+                margin-bottom: 3rem;
+            }
+        }
+
+        .wallpaper {
+            height: 30rem;
+            box-shadow: inset 0 0 1000rem rgba(0, 0, 0, 1);
+
+            img {
+                width: 100%;
+                height: 100%;
+                max-height: 30rem;
+                object-fit: cover;
+                position: relative;
+                z-index: -2;
+            }
+        }
+    }
+
+    .content {
+        width: 100%;
+        background-color: var(--dark);
+        box-shadow: 0 0 3rem rgba(0, 0, 0, 1);
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+        }
+
+        li {
+            flex: auto;
+            color: var(--light);
+            padding: 0.6rem;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            font-weight: 100;
+
+            a {
+                width: 100%;
+                display: inline-block;
+            }
+
+            a:hover {
+                text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+            }
+        }
+
+        .logo  {
+            z-index: 2;
+            position: relative;
+
+            i {
+                position: absolute;
+                top: -3rem;
+                font-size: 5rem;
+            }
+
+            &:hover i {
+                text-shadow: 0 0 2rem rgba(0, 0, 0, 0.7);
+            }
+        }
+    }
+}
+
+/*=====  End of Navigation  ======*/
+
+
+/*=============================================
+=            Sections            =
+=============================================*/
+
+.section {
+    padding: 2.5rem 1rem;
+
+    .section-title {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .section-content {
+        width: 70%;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+}
+
+.section-pictures {
+    .section-content {
+        display: flex;
+        color: var(--white);
+
+
+        .picture {
+            max-width: 50%;
+            flex-grow: 2;
+            max-height: 20rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+                max-height: 30rem;
+                object-fit: cover;
+                position: relative;
+                z-index: -2;
+            }
+        }
+
+        .picture-dsc {
+            max-width: 50%;
+            flex: flex-grow;
+            flex-grow: 2;
+            padding: 2rem;
+
+            .picture-title {
+                margin-bottom: 1rem;
+            }
+        }
+
+        .picture-dsc-dark {
+            background-color: var(--dark);
+        }
+
+        .picture-dsc-prim {
+            background-color: var(--primary);
+        }
+    }
+}
+
+/*=====  End of Sections  ======*/
+
+
+/*=============================================
+=            Footer            =
+=============================================*/
+
+.footer {
+    background-color: var(--darker);
+    color: var(--white);
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+
+        li {
+            flex: auto;
+            padding: 0.3rem;
+        }
+    }
+}
+
+/*=====  End of Footer  ======*/
+
+/*=============================================
+=            Links            =
+=============================================*/
+
+.link--login {
+    background-color: var(--light-green);
+    border: 1px solid var(--green);
+}
+
+/*=====  End of Links  ======*/
+
+
+/*=============================================
+=            Rotate            =
+=============================================*/
+
+.r-180 {
+    transform: rotate(180deg);
+}
+
+
+/*=====  End of Rotate  ======*/
+
+
+
+/*=============================================
+=            Center Element            =
+=============================================*/
+
+.ab-center {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*=====  End of Center Element  ======*/
+
+
+/*=============================================
+=            Separator            =
+=============================================*/
+
+.separator {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 2px;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+    align-items: center;
+
+    .separator-line {
+        display: inline-block;
+        width: 10rem;
+        height: 1px;
+    }
+
+    .separator-ball {
+        display: inline-block;
+        margin: 0 0.5rem;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 100%;
+    }
+}
+
+.separator-white {
+    * {
+        background-color: var(--white);
+    }
+}
+
+
+
+/*=====  End of Separator  ======*/
