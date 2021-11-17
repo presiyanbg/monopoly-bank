@@ -21,21 +21,22 @@
 =============================================*/
 
 body {
-	font-family: "Courier", sans-serif;
+    background-color: var(--darker);
+    font-family: 'Oswald', sans-serif;
 	font-weight: 100;
-	font-size: 16px;
+    font-size: 1.25rem;
 }
 
 h1 {
 	font-size: 61px;
 	line-height: 1.3em;
-	font-weight: 100;
+	font-weight: 600;
 }
 
 h2 {
 	font-size: 26px;
 	line-height: 1em;
-	font-weight: 600;
+	font-weight: 300;
 }
 
 h3 {
@@ -63,7 +64,7 @@ h6 {
 
 a {
 	color: inherit;
-	text-decoration: none;
+	text-decoration: none !important;
 }
 
 input {
@@ -74,6 +75,8 @@ li {
     list-style-type: none;
 }
 
+/*=====  End of Base  ======*/
+
 
 /*=============================================
 =            Colors            =
@@ -82,18 +85,31 @@ li {
 :root {
     --black: #000000;
     --white: #ffffff;
-    --primary: #548CA8;
+    --primary: #17a2b8;
     --light: #EEEEEE;
     --dark: #292d44;
     --darker: #1d2030;
     --green: #34BE82;
     --light-green: #2FDD92;
+    --success: #2FDD92;
+    --light-blue: #7fbbda;
+    --silver: #c0c0c0;
 }
-
 
 /*=====  End of Colors  ======*/
 
-/*=====  End of Base  ======*/
+
+/*=============================================
+=            Z Index            =
+=============================================*/
+
+:root {
+    --top-index: 10;
+    --middle-index: 5;
+    --lowest-index: 3;
+}
+
+/*=====  End of Z Index  ======*/
 
 /*=============================================
 =            Wrapper            =
@@ -107,6 +123,17 @@ li {
 
 /*=====  End of Wrapper  ======*/
 
+
+/*=============================================
+=            Page            =
+=============================================*/
+
+.page-with-nav {
+    padding: 7rem 3rem;
+}
+
+/*=====  End of Page  ======*/
+
 /*=============================================
 =            Navigation            =
 =============================================*/
@@ -115,46 +142,11 @@ li {
     width: 100%;
     min-width: 100%;
 
-    .hero {
-        position: relative;
-
-        .body {
-            z-index: 3;
-            position: absolute;
-            width: 100%;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            text-align: center;
-            text-shadow: 0 0 3rem rgba(0, 1, 0, 1);
-
-            .title {
-                text-transform: uppercase;
-                color: var(--white);
-            }
-
-            .subtitle {
-                color: var(--white);
-                margin-bottom: 3rem;
-            }
-        }
-
-        .wallpaper {
-            height: 30rem;
-            box-shadow: inset 0 0 1000rem rgba(0, 0, 0, 1);
-
-            img {
-                width: 100%;
-                height: 100%;
-                max-height: 30rem;
-                object-fit: cover;
-                position: relative;
-                z-index: -2;
-            }
-        }
-    }
-
     .content {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: var(--top-index);
         width: 100%;
         background-color: var(--dark);
         box-shadow: 0 0 3rem rgba(0, 0, 0, 1);
@@ -163,6 +155,7 @@ li {
             display: flex;
             flex-direction: row;
             text-align: center;
+            margin: 0 !important;
         }
 
         li {
@@ -178,23 +171,31 @@ li {
                 display: inline-block;
             }
 
+            &:not(.logo):hover {
+                background-color: var(--white);
+                color: var(--dark);
+            }
+
             a:hover {
-                text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+                color: inherit !important;
             }
         }
 
         .logo  {
-            z-index: 2;
             position: relative;
 
             i {
                 position: absolute;
                 top: -3rem;
                 font-size: 5rem;
+                background-color: var(--dark);
+                border-radius: 55%;
+                height: 10rem;
+                padding: 0.5rem;
             }
 
-            &:hover i {
-                text-shadow: 0 0 2rem rgba(0, 0, 0, 0.7);
+            &:hover {
+                color: var(--success);
             }
         }
     }
@@ -204,11 +205,57 @@ li {
 
 
 /*=============================================
+=            Hero            =
+=============================================*/
+
+.hero {
+    position: relative;
+
+    .body {
+        z-index: 3;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        text-shadow: 1rem 0 3rem rgba(0, 1, 0, 0.5);
+
+        .title {
+            text-transform: uppercase;
+            color: var(--white);
+        }
+
+        .subtitle {
+            color: var(--white);
+            margin-bottom: 3rem;
+        }
+    }
+
+    .wallpaper {
+        height: 30rem;
+        box-shadow: inset 0 0 1000rem rgba(0, 0, 0, 1);
+
+        img {
+            width: 100%;
+            height: 100%;
+            max-height: 30rem;
+            object-fit: cover;
+            position: relative;
+            z-index: -2;
+        }
+    }
+}
+
+/*=====  End of Hero  ======*/
+
+/*=============================================
 =            Sections            =
 =============================================*/
 
 .section {
-    padding: 2.5rem 1rem;
+    background-color: var(--white);
+    padding: 5rem 1rem;
 
     .section-title {
         width: 100%;
@@ -292,6 +339,50 @@ li {
 
 /*=====  End of Footer  ======*/
 
+
+/*=============================================
+=            Login            =
+=============================================*/
+
+.login-card {
+    width: 70rem;
+    background-color: var(--light);
+    margin: auto;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    .header {
+        background-color: var(--primary);
+        width: 100%;
+        padding: 4rem 1rem 1rem 1rem;
+        text-align: center;
+        color: var(--white);
+    }
+
+    .body {
+        padding: 3rem;
+    }
+
+    .footer {
+        text-align: center;
+        background-color: var(--light);
+    }
+}
+
+.login-wallpaper {
+    max-width: 100%;
+    height: 100%;
+
+    img {
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+/*=====  End of Login  ======*/
+
+
 /*=============================================
 =            Links            =
 =============================================*/
@@ -299,9 +390,79 @@ li {
 .link--login {
     background-color: var(--light-green);
     border: 1px solid var(--green);
+
+    &:hover {
+        background-color: var(--white);
+        color: var(--dark) !important;
+        border-color:var(--white);
+
+        a {
+            color: var(--dark) !important;
+
+        }
+    }
+
+    a:hover {
+        color: var(--dark) !important;
+    }
+}
+
+.link--backhome {
+    background-color: var(--light-blue);
+    border: 1px solid var(--dark);
+    color: var(--white);
+
+    &:hover {
+        background-color: var(--light);
+        color: var(--dark) !important;
+    }
 }
 
 /*=====  End of Links  ======*/
+
+
+/*=============================================
+=            Card            =
+=============================================*/
+
+.card {
+    width: 30rem;
+    margin: auto;
+    background-color: var(--white);
+
+    .header {
+        position: relative;
+        padding: 1.5rem;
+        text-align: center;
+        border-bottom: 1px solid var(--silver);
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 1rem;
+            height: 1rem;
+            background-color: var(--danger);
+            border-radius: 55%;
+        }
+    }
+
+    .body {
+        padding: 1rem 2rem;
+    }
+
+    .footer {
+        background-color: var(--white);
+        padding: 1rem;
+    }
+}
+
+
+/*=====  End of Card  ======*/
 
 
 /*=============================================
@@ -314,7 +475,6 @@ li {
 
 
 /*=====  End of Rotate  ======*/
-
 
 
 /*=============================================
@@ -366,7 +526,5 @@ li {
         background-color: var(--white);
     }
 }
-
-
 
 /*=====  End of Separator  ======*/

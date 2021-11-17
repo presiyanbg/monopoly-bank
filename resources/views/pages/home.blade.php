@@ -1,4 +1,30 @@
 @include('pages.components.navigation.nav')
+<div class="hero">
+    <div class="body ab-center">
+        <div class="title">
+            <h1>Monopoly</h1>
+        </div>
+
+        <div class="subtitle">
+            <h3>@lang("The right way to do business")</h3>
+        </div>
+
+        <div class="separator separator-white">
+            <div class="separator-line">
+            </div>
+
+            <div class="separator-ball">
+            </div>
+
+            <div class="separator-line">
+            </div>
+        </div>
+    </div>
+
+    <div class="wallpaper">
+        <img src="{{URL::asset('/images/home.jpg')}}" alt="Home page wallpaper">
+    </div>
+</div>
 
 <section class="section">
     <div class="section-header">
