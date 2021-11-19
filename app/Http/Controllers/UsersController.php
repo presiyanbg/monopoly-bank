@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Credit;
+use App\Models\CreditApplication;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,6 +27,8 @@ class UsersController extends Controller
      */
     public function login()
     {
+        session(['link' => url()->previous()]);
+
         return view('users.login');
     }
 
@@ -35,17 +39,28 @@ class UsersController extends Controller
      */
     public function authenticate(Request $request)
     {
-        $this->validate(request(), [
-            'email' => 'required|email',
-            'password' => 'required'
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
         ]);
 
-        $credentials = $request->only('email', 'password');
+        $authenticate = Auth::attempt(['username' => $request->username, 'password' => $request->password]);
 
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('pages.home')
-                        ->withSuccess('Signed in');
+        if ($authenticate) {
+            return redirect(session('link'));
         }
+
+        return redirect("login")->withSuccess('Login details are not valid');
+    }
+
+    /**
+     * Log out user.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function logout()
+    {
+        Auth::logout();
 
         return redirect()->to('/');
     }
@@ -68,14 +83,18 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate(request(), [
+        $validated = $request->validate([
             'name' => 'required',
             'username' => 'required',
+            'phone' => 'required',
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required',
+            'earnings' => 'required',
+            'address' => 'required',
+            'pin' => 'required'
         ]);
 
-        $user = User::create(request(['name','username', 'email', 'password']));
+        $user = User::create($validated);
 
         auth()->login($user);
 
@@ -90,7 +109,11 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        //
+        $creditApplications = CreditApplication::all()->where('user_id', $user->id);
+
+        $credits = Credit::all()->where('user_id', $user->id);
+
+        return view('users.show', ['user' => $user, 'creditApplications' => $creditApplications, 'credits' => $credits]);
     }
 
     /**
@@ -101,7 +124,7 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('users.edit', ['user' => $user]);
     }
 
     /**
@@ -113,7 +136,29 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'phone' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'earnings' => 'required',
+            'address' => 'required',
+            'pin' => 'required'
+        ]);
+
+        if ($validated) {
+            $user->fill($validated);
+
+            $user->save();
+
+            $creditApplications = CreditApplication::all()->where('user_id', $user->id);
+
+            $credits = Credit::all()->where('user_id', $user->id);
+
+            return view('users.show', ['user' => $user, 'creditApplications' => $creditApplications, 'credits' => $credits]);
+        }
+
     }
 
     /**

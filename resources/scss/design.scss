@@ -36,11 +36,10 @@ h1 {
 h2 {
 	font-size: 26px;
 	line-height: 1em;
-	font-weight: 300;
+	font-weight: 100;
 }
 
 h3 {
-	text-transform: uppercase;
 	font-size: 23px;
 	line-height: 1.3em;
 	font-weight: 100;
@@ -55,11 +54,13 @@ h4 {
 h5 {
 	font-size: 15px;
 	line-height: 1.5em;
+    font-weight: 100;
 }
 
 h6 {
 	font-size: 10px;
 	line-height: 1.5em;
+    font-weight: 100;
 }
 
 a {
@@ -159,6 +160,8 @@ li {
         }
 
         li {
+            width: 20rem;
+            max-width: 20rem;
             flex: auto;
             color: var(--light);
             padding: 0.6rem;
@@ -197,6 +200,17 @@ li {
             &:hover {
                 color: var(--success);
             }
+        }
+    }
+}
+
+.navigation-white {
+    .content {
+        background-color: var(--light);
+        color: var(--dark);
+
+        li {
+            color: var(--dark);
         }
     }
 }
@@ -324,6 +338,7 @@ li {
 .footer {
     background-color: var(--darker);
     color: var(--white);
+    font-size: 1rem !important;
 
     ul {
         display: flex;
@@ -407,6 +422,24 @@ li {
     }
 }
 
+.link--logout {
+    background-color: var(--danger);
+
+    &:hover {
+        background-color: var(--white);
+        color: var(--danger) !important;
+
+        a {
+            color: var(--danger) !important;
+
+        }
+    }
+
+    a:hover {
+        color: var(--dark) !important;
+    }
+}
+
 .link--backhome {
     background-color: var(--light-blue);
     border: 1px solid var(--dark);
@@ -415,6 +448,16 @@ li {
     &:hover {
         background-color: var(--light);
         color: var(--dark) !important;
+    }
+}
+
+.link--white {
+    background-color: var(--white);
+    color: var(--primary) !important;
+
+    &:hover {
+        background-color: var(--primary) !important;
+        color: var(--white) !important;
     }
 }
 
@@ -430,7 +473,7 @@ li {
     margin: auto;
     background-color: var(--white);
 
-    .header {
+    .card-header {
         position: relative;
         padding: 1.5rem;
         text-align: center;
@@ -451,16 +494,23 @@ li {
         }
     }
 
-    .body {
-        padding: 1rem 2rem;
+    .card-body {
+        padding: 2rem 2rem;
+        max-height: 500px;
+        overflow-y: auto;
     }
 
-    .footer {
+    .card-footer {
         background-color: var(--white);
         padding: 1rem;
     }
 }
 
+.card-40 {
+    min-height: 40rem !important;
+    height: 40rem !important;
+    max-height: 40rem !important;
+}
 
 /*=====  End of Card  ======*/
 
@@ -478,7 +528,7 @@ li {
 
 
 /*=============================================
-=            Center Element            =
+=            Position Element            =
 =============================================*/
 
 .ab-center {
@@ -488,8 +538,54 @@ li {
     margin-right: auto;
 }
 
+.ps-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
 
 /*=====  End of Center Element  ======*/
+
+
+/*=============================================
+=            Slider            =
+=============================================*/
+
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 1rem;
+    background: var(--light);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 1rem;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 55%;
+    background: var(--light-green);
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 1rem;
+    height: 1rem;
+    background: var(--light-green);
+    cursor: pointer;
+}
+
+/*=====  End of Slider  ======*/
 
 
 /*=============================================

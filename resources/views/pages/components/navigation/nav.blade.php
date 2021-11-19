@@ -11,7 +11,7 @@
                     </li>
 
                     <li>
-                        <a href="">
+                        <a href="{{ route("credit.apply") }}">
                             @lang('Apply')
                         </a>
                     </li>
@@ -22,17 +22,31 @@
                         </a>
                     </li>
 
-                    <li>
-                        <a href="">
-                            @lang('Thing')
-                        </a>
-                    </li>
+                    @if (! auth()->user())
+                        <li>
+                            <a href="#">
+                                @lang('Calculator')
+                            </a>
+                        </li>
 
-                    <li class="link--login">
-                        <a href="{{ route("users.login") }}">
-                            @lang('Long In')
-                        </a>
-                    </li>
+                        <li class="link--login">
+                            <a href="{{ route("users.login") }}">
+                                @lang('Log In')
+                            </a>
+                        </li>
+                    @else
+                        <li>
+                            <a href="{{ route("users.show", auth()->user() )  }}">
+                                @lang('Control Panel')
+                            </a>
+                        </li>
+
+                        <li class="link--logout">
+                            <a href="{{ route("users.logout") }}">
+                                @lang('log Out')
+                            </a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>

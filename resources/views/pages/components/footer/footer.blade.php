@@ -16,15 +16,23 @@
 
                     <li>
                         <a href="">
-                            @lang('Thing')
+                            @lang('Calculator')
                         </a>
                     </li>
 
-                    <li>
-                        <a href="">
-                            @lang('Long In')
-                        </a>
-                    </li>
+                    @if (! auth()->user())
+                        <li>
+                            <a href="{{ route("users.login") }}">
+                                @lang('Log In')
+                            </a>
+                        </li>
+                    @else
+                        <li>
+                            <a href="{{ route("users.logout") }}">
+                                @lang('log Out')
+                            </a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>

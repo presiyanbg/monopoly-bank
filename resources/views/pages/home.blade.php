@@ -5,6 +5,7 @@
             <h1>Monopoly</h1>
         </div>
 
+
         <div class="subtitle">
             <h3>@lang("The right way to do business")</h3>
         </div>

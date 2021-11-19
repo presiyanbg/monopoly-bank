@@ -20,7 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('password');
             $table->string('address')->nullable();
-            $table->integer('pin')->nullable(); // personal identification number
+            $table->string('phone')->nullable();
+            $table->double('earnings', 150, 2)->nullable();
+            $table->double('pin', 150, 0)->nullable(); // personal identification number
             $table->timestamps();
         });
     }
