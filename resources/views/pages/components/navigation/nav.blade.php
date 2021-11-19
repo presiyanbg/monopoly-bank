@@ -24,7 +24,7 @@
 
                     @if (! auth()->user())
                         <li>
-                            <a href="#">
+                            <a href="{{ route("users.calculator") }}">
                                 @lang('Calculator')
                             </a>
                         </li>

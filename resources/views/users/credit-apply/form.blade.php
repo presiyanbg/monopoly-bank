@@ -67,7 +67,7 @@
     </span>
 
     <span class="col-6">
-        <span class="badge badge-success font-weight-light monthly-payment w-100">
+        <span class="btn btn-success btn-lg font-weight-light monthly-payment w-100">
             1,666.66 $
         </span>
     </span>

@@ -34,3 +34,5 @@ Route::post('/users/{user}/update', [UsersController::class, 'update'])->name('u
 
 Route::get('/apply', 'App\Http\Controllers\CreditApplicationsController@creditApply')->name('credit.apply');
 Route::get('/apply-store', 'App\Http\Controllers\CreditApplicationsController@creditApplyStore')->name('credit.apply.store');
+
+Route::get('/calculator', [UsersController::class, 'showCalculator'])->name('users.calculator');

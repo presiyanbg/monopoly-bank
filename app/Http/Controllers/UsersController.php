@@ -117,6 +117,14 @@ class UsersController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     */
+    public function showCalculator()
+    {
+        return view('users.calculator');
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\User  $user

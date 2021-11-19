@@ -1,4 +1,5 @@
 @include('pages.components.navigation.nav')
+
 <div class="hero">
     <div class="body ab-center">
         <div class="title">
