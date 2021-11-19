@@ -1,8 +1,8 @@
 
 # Курсов Проект - Банков сайт - PHP Laravel“
 
-### Студент : П. Цоневски       Преподавател : ас. Диляна Димитрова
-###           фак. № 122-8126
+### Преподавател : ас. Диляна Димитрова
+### Студент : Пресиян Цоневски  фак. № 122-8126
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
